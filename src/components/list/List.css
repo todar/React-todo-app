@@ -1,0 +1,78 @@
+:root {
+  --padding-sides: 5px 45px 5px 53px;
+  --padding: 4px 0;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.listBox {
+  width: 400px;
+  height: 600px;
+  box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18),
+    0 4px 15px 4px rgba(0, 0, 0, 0.15);
+  padding: 0px;
+  border-radius: 5px;
+}
+
+.title {
+  padding: 10px 15px;
+  border: none;
+  outline: none;
+  font-size: 1.3em;
+}
+
+.input {
+  border: 1px transparent;
+  outline: none;
+  padding: var(--padding-sides);
+  width: 100%;
+  resize: none;
+}
+
+.completed {
+  color: rgba(0, 0, 0, 0.54);
+  text-decoration: line-through;
+}
+
+.icon {
+  height: 18px;
+  opacity: 0.54;
+  outline: none;
+  position: absolute;
+  top: 5px;
+  width: 18px;
+  left: 30px;
+}
+
+.lineContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.lineContainer:focus-within {
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.delete {
+  position: absolute;
+  right: 12px;
+  top: 5px;
+  cursor: pointer;
+  visibility: hidden;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.delete:hover {
+  color: rgba(0, 0, 0, 0.86);
+}
+
+.lineContainer:hover .delete,
+.lineContainer:focus-within .delete {
+  visibility: visible;
+}
