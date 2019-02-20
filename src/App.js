@@ -16,11 +16,6 @@ export class App extends Component {
           id: 2,
           content: "Fix error in 'Check for delete'",
           completed: false
-        },
-        {
-          id: 3,
-          content: "Fix error with title and focus.",
-          completed: false
         }
       ]
     };

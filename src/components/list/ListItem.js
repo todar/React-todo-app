@@ -4,15 +4,15 @@ import styles from "./List.css";
 export class ListItem extends Component {
   constructor(props) {
     super(props);
-    this.checkForDelete = this.checkForDelete.bind(this);
+    this.textInput = React.createRef();
+    this.focusTextInput = this.focusTextInput.bind(this);
+  }
+  componentDidMount() {
+    this.focusTextInput();
   }
 
-  checkForDelete(e) {
-    const { id, content, deleteItem } = this.props;
-
-    if (e.key === "Backspace" && content === "") {
-      deleteItem.bind(this, this.props.id);
-    }
+  focusTextInput() {
+    this.textInput.current.focus();
   }
 
   render() {
@@ -30,12 +30,9 @@ export class ListItem extends Component {
           <input type="checkbox" onChange={markComplete.bind(this, id)} />
         </div>
         <input
-          ref={input => input && input.focus()}
-          contentEditable="true"
-          aria-multiline="true"
+          ref={this.textInput}
           type="text"
           className={`${styles.input} ${completed ? styles.completed : ""}`}
-          name="listItem"
           value={content}
           onChange={updateContent.bind(this, id)}
           onKeyDown={checkForDelete.bind(this, id, content)}
